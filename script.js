@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const sections = document.querySelectorAll("main section[id]");
+    const siteHeader = document.querySelector(".site-header");
+
+    // Navbar Scroll Effect
+    const updateHeaderOnScroll = () => {
+        if (!siteHeader) return;
+
+        siteHeader.classList.toggle("scrolled", window.scrollY > 30);
+    };
 
     // Smooth Scroll
     navLinks.forEach((link) => {
@@ -45,6 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    // Run effects while scrolling
+    window.addEventListener("scroll", updateHeaderOnScroll);
     window.addEventListener("scroll", updateActiveLink);
+
+    // Run once when the page loads
+    updateHeaderOnScroll();
     updateActiveLink();
 });

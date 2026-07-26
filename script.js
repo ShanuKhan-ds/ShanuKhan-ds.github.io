@@ -1,25 +1,31 @@
 // Portfolio Website JavaScript
 // Developed by Shanu Khan
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
     console.log("Portfolio Website Initialized");
 
-    // Smooth Scroll Navigation
+    // Smooth Scroll
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
     navLinks.forEach(link => {
+
         link.addEventListener("click", function (e) {
+
             e.preventDefault();
 
-            const targetId = this.getAttribute("href");
-            const targetSection = document.querySelector(targetId);
+            const target = document.querySelector(this.getAttribute("href"));
 
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth"
                 });
+
             }
+
         });
+
     });
+
 });

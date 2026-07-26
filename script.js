@@ -2,30 +2,49 @@
 // Developed by Shanu Khan
 
 document.addEventListener("DOMContentLoaded", () => {
-
     console.log("Portfolio Website Initialized");
 
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sections = document.querySelectorAll("main section[id]");
+
     // Smooth Scroll
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
 
-    navLinks.forEach(link => {
+            if (!targetSection) return;
 
-        link.addEventListener("click", function (e) {
+            event.preventDefault();
 
-            e.preventDefault();
-
-            const target = document.querySelector(this.getAttribute("href"));
-
-            if (target) {
-
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
+            targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         });
-
     });
 
+    // Active Navigation Highlight
+    const updateActiveLink = () => {
+        let currentSection = "home";
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 140;
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+        });
+    };
+
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
 });

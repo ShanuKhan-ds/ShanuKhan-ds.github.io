@@ -68,16 +68,26 @@
 
         /* Navigation */
 
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5, 8, 22, 0.88);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(18px);
-        }
+       .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(5, 8, 22, 0.88);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+.site-header.scrolled {
+    background: rgba(5, 8, 22, 0.96);
+    border-bottom-color: rgba(96, 165, 250, 0.22);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+}
 
         .navbar {
             min-height: 82px;

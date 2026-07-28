@@ -925,40 +925,194 @@
     margin-top:auto;
 }
 
+/*=========================================
+        ALSO WORKING WITH SECTION
+=========================================*/
+
 .skills-footer{
-    text-align:center;
-    margin-top:60px;
+    margin-top:70px;
 }
 
-.skills-footer>span{
-    display:inline-block;
-    color:#ffffff;
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.skills-footer-tags{
+.footer-title{
     display:flex;
-    flex-wrap:wrap;
+    align-items:center;
     justify-content:center;
-    gap:12px;
+    gap:18px;
+    margin-bottom:34px;
 }
 
-.skills-footer-tags span{
-    padding:10px 18px;
-    border-radius:999px;
-    background:rgba(59,130,246,.08);
-    border:1px solid rgba(59,130,246,.20);
-    color:#bfdbfe;
-    font-size:14px;
-    transition:.3s ease;
-}
-
-.skills-footer-tags span:hover{
-    background:#3b82f6;
+.footer-title h3{
+    margin:0;
     color:#ffffff;
-    transform:translateY(-3px);
+    font-size:23px;
+    font-weight:700;
+    letter-spacing:.4px;
+    white-space:nowrap;
+}
+
+.footer-title span{
+    position:relative;
+    flex:1;
+    max-width:430px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(59,130,246,.75)
+    );
+}
+
+.footer-title span:last-child{
+    background:linear-gradient(
+        90deg,
+        rgba(59,130,246,.75),
+        transparent
+    );
+}
+
+.footer-title span:first-child::after,
+.footer-title span:last-child::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#3b82f6;
+    box-shadow:
+        0 0 10px rgba(59,130,246,.8),
+        0 0 20px rgba(59,130,246,.35);
+    transform:translateY(-50%);
+}
+
+.footer-title span:first-child::after{
+    right:-1px;
+}
+
+.footer-title span:last-child::before{
+    left:-1px;
+}
+
+.skills-footer-grid{
+    display:grid;
+    grid-template-columns:repeat(9,minmax(0,1fr));
+    gap:18px;
+}
+
+.footer-tool-card{
+    position:relative;
+    min-height:210px;
+    padding:26px 14px 22px;
+    border:1px solid rgba(59,130,246,.24);
+    border-radius:17px;
+    background:linear-gradient(
+        180deg,
+        rgba(15,23,42,.94),
+        rgba(8,15,30,.96)
+    );
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    text-align:center;
+    overflow:hidden;
+    transition:.35s ease;
+}
+
+.footer-tool-card::before{
+    content:"";
+    position:absolute;
+    left:15%;
+    right:15%;
+    bottom:0;
+    height:2px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #3b82f6,
+        #60a5fa,
+        transparent
+    );
+    box-shadow:
+        0 0 10px rgba(59,130,246,.85),
+        0 0 22px rgba(59,130,246,.35);
+    transform:scaleX(.45);
+    opacity:.7;
+    transition:.35s ease;
+}
+
+.footer-tool-card::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    top:-55px;
+    right:-55px;
+    border-radius:50%;
+    background:rgba(59,130,246,.12);
+    filter:blur(18px);
+    transition:.35s ease;
+}
+
+.footer-tool-card i{
+    position:relative;
+    z-index:1;
+    font-size:46px;
+    color:#60a5fa;
+    text-shadow:0 0 14px rgba(59,130,246,.45);
+    transition:.35s ease;
+}
+
+.tool-logo{
+    position:relative;
+    z-index:1;
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 9px rgba(59,130,246,.35));
+    transition:.35s ease;
+}
+
+.footer-tool-card p{
+    position:relative;
+    z-index:1;
+    margin:0;
+    color:#f8fafc;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.45;
+}
+
+.footer-tool-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(96,165,250,.62);
+    background:linear-gradient(
+        180deg,
+        rgba(17,27,49,.98),
+        rgba(10,19,37,.98)
+    );
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.28),
+        0 0 24px rgba(59,130,246,.13);
+}
+
+.footer-tool-card:hover::before{
+    transform:scaleX(1);
+    opacity:1;
+}
+
+.footer-tool-card:hover::after{
+    background:rgba(59,130,246,.2);
+}
+
+.footer-tool-card:hover i,
+.footer-tool-card:hover .tool-logo{
+    transform:translateY(-3px) scale(1.08);
+}
+
+.footer-tool-card:hover .tool-logo{
+    filter:drop-shadow(0 0 13px rgba(59,130,246,.55));
 }
         /* Mobile */
 
@@ -1617,20 +1771,92 @@
 
 </article>
             </div>
-            <div class="skills-footer">
+           <!-- Also Working With Section -->
+<div class="skills-footer">
 
-    <span>Also Working With</span>
+    <div class="footer-title">
+        <span></span>
 
-    <div class="skills-footer-tags">
+        <h3>Also Working With</h3>
 
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>Jupyter Notebook</span>
-        <span>VS Code</span>
-        <span>Exploratory Data Analysis</span>
-        <span>Feature Engineering</span>
-        <span>Data Cleaning</span>
-        <span>Statistical Analysis</span>
+        <span></span>
+    </div>
+
+    <div class="skills-footer-grid">
+
+        <!-- GitHub -->
+        <div class="footer-tool-card">
+            <img
+                src="https://cdn.simpleicons.org/github/60a5fa"
+                class="tool-logo"
+                alt="GitHub logo"
+            >
+            <p>GitHub</p>
+        </div>
+
+        <!-- Jupyter Notebook -->
+        <div class="footer-tool-card">
+            <img
+                src="https://cdn.simpleicons.org/jupyter/60a5fa"
+                class="tool-logo"
+                alt="Jupyter Notebook logo"
+            >
+            <p>Jupyter Notebook</p>
+        </div>
+
+        <!-- VS Code -->
+        <div class="footer-tool-card">
+            <img
+                src="https://cdn.simpleicons.org/visualstudiocode/60a5fa"
+                class="tool-logo"
+                alt="Visual Studio Code logo"
+            >
+            <p>VS Code</p>
+        </div>
+
+        <!-- Exploratory Data Analysis -->
+        <div class="footer-tool-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <p>Exploratory Data Analysis</p>
+        </div>
+
+        <!-- Feature Engineering -->
+        <div class="footer-tool-card">
+            <i class="fa-solid fa-brain"></i>
+            <p>Feature Engineering</p>
+        </div>
+
+        <!-- Data Cleaning -->
+        <div class="footer-tool-card">
+            <i class="fa-solid fa-database"></i>
+            <p>Data Cleaning</p>
+        </div>
+
+        <!-- Statistical Analysis -->
+        <div class="footer-tool-card">
+            <i class="fa-solid fa-chart-pie"></i>
+            <p>Statistical Analysis</p>
+        </div>
+
+        <!-- Kaggle -->
+        <div class="footer-tool-card">
+            <img
+                src="https://cdn.simpleicons.org/kaggle/60a5fa"
+                class="tool-logo"
+                alt="Kaggle logo"
+            >
+            <p>Kaggle</p>
+        </div>
+
+        <!-- Google Colab -->
+        <div class="footer-tool-card">
+            <img
+                src="https://cdn.simpleicons.org/googlecolab/60a5fa"
+                class="tool-logo"
+                alt="Google Colab logo"
+            >
+            <p>Google Colab</p>
+        </div>
 
     </div>
 

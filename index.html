@@ -1124,6 +1124,9 @@
     background:rgba(59,130,246,.2);
 }
 
+
+
+        
 .footer-tool-card:hover i,
 .footer-tool-card:hover .tool-logo{
     transform:translateY(-3px) scale(1.08);
@@ -1172,21 +1175,30 @@
 }
 
 .project-visual{
-
+    position:relative;
     height:210px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    padding:24px;
-
-    background:linear-gradient(135deg,#2563eb,#3b82f6);
-
+    overflow:hidden;
+    border-radius:20px 20px 0 0;
 }
-
+  .project-number{
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    z-index:2;
+}
+.project-card:hover .project-banner{
+    transform:scale(1.05);
+}      
 .project-number{
 
     width:48px;
@@ -2221,16 +2233,18 @@
 
            <!-- Project 1 -->
 <article class="project-card">
+    <div class="project-visual">
 
-    <div class="project-visual project-visual-powerbi">
+    <img
+        src="assets/images/powerbi-banner.png"
+        alt="Sales Performance Dashboard project preview"
+        class="project-banner"
+    >
 
-        <span class="project-number">01</span>
+    <span class="project-number">01</span>
 
-        <div class="project-visual-content">
-            <span>Power BI Dashboard</span>
-        </div>
-
-    </div>
+</div>
+   
 
     <div class="project-content">
 
@@ -2296,9 +2310,16 @@
             <!-- Project 2 -->
             <article class="project-card">
 
-               <div class="project-visual-content">
+               <div class="project-visual">
 
-    <span>Machine Learning</span>
+    <img
+        src="assets/images/titanic-banner.png"
+        alt="Titanic Survival Prediction project preview"
+        class="project-banner"
+    >
+
+    <span class="project-number">02</span>
+
 </div>
                 <div class="project-content">
                     <div class="project-category">
@@ -2364,11 +2385,7 @@
             <!-- Project 3 -->
             <article class="project-card">
 
-                <div class="project-visual-content">
-
-    <span>SQL Analysis</span>
-
-</div>
+                 <span>SQL Analysis</span>
                 <div class="project-content">
 
                     <div class="project-category">

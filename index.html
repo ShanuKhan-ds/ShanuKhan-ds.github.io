@@ -1141,314 +1141,333 @@
 
 .projects-section{
     padding:120px 0;
+    background:#050816;
 }
 
 .projects-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:32px;
-    margin-top:70px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    align-items:stretch;
+    gap:30px;
+    margin-top:65px;
 }
 
+/* Project Card */
+
 .project-card{
-
-    background:#111c36;
-
-    border:1px solid rgba(59,130,246,.15);
-
-    border-radius:22px;
-
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    height:100%;
     overflow:hidden;
+    background:linear-gradient(
+        180deg,
+        rgba(17,28,54,.98),
+        rgba(15,23,42,.98)
+    );
+    border:1px solid rgba(59,130,246,.18);
+    border-radius:22px;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
 
-    transition:.35s;
-
+.project-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:4;
+    width:100%;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #3b82f6,
+        #60a5fa,
+        transparent
+    );
+    transform:scaleX(0);
+    transition:transform .35s ease;
 }
 
 .project-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#3b82f6;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.35);
-
+    transform:translateY(-9px);
+    border-color:rgba(96,165,250,.60);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.34),
+        0 0 28px rgba(59,130,246,.12);
 }
+
+.project-card:hover::before{
+    transform:scaleX(1);
+}
+
+/* Project Banner */
 
 .project-visual{
     position:relative;
-    height:210px;
+    width:100%;
+    aspect-ratio:16 / 7;
     overflow:hidden;
-    border-radius:20px 20px 0 0;
+    background:#071225;
+    border-radius:21px 21px 0 0;
 }
-  .project-number{
+
+.project-visual::after{
+    content:"";
     position:absolute;
-    top:20px;
-    left:20px;
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(10px);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    z-index:2;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(
+        180deg,
+        rgba(5,8,22,.03) 45%,
+        rgba(5,8,22,.25) 100%
+    );
 }
+
+.project-banner{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
 .project-card:hover .project-banner{
-    transform:scale(1.05);
-}      
+    transform:scale(1.035);
+    filter:brightness(1.05);
+}
+
+/* Number Badge */
+
 .project-number{
-
-    width:48px;
-
-    height:48px;
-
-    border-radius:50%;
-
+    position:absolute;
+    top:16px;
+    left:16px;
+    z-index:3;
+    width:46px;
+    height:46px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    font-weight:700;
-
-    color:#fff;
-
-    background:rgba(255,255,255,.18);
-
+    color:#ffffff;
+    font-size:14px;
+    font-weight:800;
+    background:rgba(15,23,42,.74);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 24px rgba(0,0,0,.30);
 }
 
-.project-visual-content{
-
-    text-align:center;
-
-    color:#fff;
-
-}
-
-.project-visual-content i{
-
-    font-size:64px;
-
-    margin-bottom:18px;
-
-}
-
-.project-visual-content span{
-
-    font-size:18px;
-
-    font-weight:700;
-
-}
+/* Content */
 
 .project-content{
-
-    padding:28px;
-
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    padding:27px;
 }
 
 .project-category{
-
-    display:inline-block;
-
-    padding:7px 16px;
-
-    border-radius:999px;
-
-    background:rgba(59,130,246,.12);
-
-    color:#60a5fa;
-
-    font-size:13px;
-
-    font-weight:700;
-
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:center;
+    min-height:34px;
     margin-bottom:18px;
-
+    padding:7px 15px;
+    color:#60a5fa;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.02em;
+    background:rgba(59,130,246,.12);
+    border:1px solid rgba(59,130,246,.10);
+    border-radius:999px;
 }
 
 .project-content h3{
-
-    font-size:30px;
-
-    margin-bottom:16px;
-
-    color:#fff;
-
+    margin-bottom:15px;
+    color:#ffffff;
+    font-size:clamp(24px,2vw,30px);
+    line-height:1.3;
 }
 
-.project-content p{
-
+.project-content > p{
+    min-height:130px;
+    margin-bottom:0;
     color:#94a3b8;
-
+    font-size:15px;
     line-height:1.8;
-
 }
+
+/* Highlights */
 
 .project-highlights{
-
-    margin:28px 0;
-
+    min-height:82px;
     display:flex;
-
     flex-wrap:wrap;
-
-    gap:12px;
-
+    align-content:flex-start;
+    gap:10px 15px;
+    margin:25px 0 22px;
 }
 
 .project-highlights span{
-
+    display:inline-flex;
+    align-items:center;
     color:#dbeafe;
-
-    font-size:14px;
-
+    font-size:13px;
+    line-height:1.45;
 }
 
 .project-highlights i{
-
+    margin-right:7px;
     color:#3b82f6;
-
-    margin-right:6px;
-
 }
 
+/* Technologies */
+
 .project-tech{
-
+    min-height:88px;
     display:flex;
-
     flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-bottom:28px;
-
+    align-content:flex-start;
+    gap:9px;
+    margin-bottom:24px;
 }
 
 .project-tech span{
-
-    padding:8px 16px;
-
-    border-radius:999px;
-
-    background:#182746;
-
+    display:inline-flex;
+    align-items:center;
+    min-height:34px;
+    padding:8px 14px;
     color:#dbeafe;
-
-    font-size:13px;
-
+    font-size:12px;
+    font-weight:600;
+    line-height:1;
+    background:rgba(59,130,246,.10);
+    border:1px solid rgba(96,165,250,.15);
+    border-radius:999px;
 }
 
+/* Links */
+
 .project-links{
-
-    display:flex;
-
-    gap:14px;
-
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:auto;
 }
 
 .project-link{
-
-    flex:1;
-
-    padding:13px;
-
+    min-height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:12px 15px;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:700;
     text-align:center;
-
-    border-radius:12px;
-
     text-decoration:none;
-
-    color:#fff;
-
-    border:1px solid rgba(59,130,246,.25);
-
-    transition:.3s;
-
+    background:rgba(15,23,42,.45);
+    border:1px solid rgba(96,165,250,.25);
+    border-radius:12px;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
 .project-link.primary{
-
-    background:#3b82f6;
-
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+    border-color:transparent;
+    box-shadow:0 12px 28px rgba(37,99,235,.20);
 }
 
 .project-link:hover{
-
     transform:translateY(-3px);
-
-    border-color:#3b82f6;
-
+    border-color:rgba(96,165,250,.70);
+    background:rgba(30,41,59,.88);
 }
 
-.project-visual-powerbi{
-
-    background:linear-gradient(135deg,#1d4ed8,#2563eb);
-
+.project-link.primary:hover{
+    background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+    box-shadow:0 15px 32px rgba(37,99,235,.30);
 }
 
-.project-visual-python{
+/* Projects Responsive */
 
-    background:linear-gradient(135deg,#2563eb,#38bdf8);
+@media (max-width:1050px){
 
+    .projects-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .project-content > p{
+        min-height:110px;
+    }
 }
 
-.project-visual-sql{
+@media (max-width:720px){
 
-    background:linear-gradient(135deg,#0f172a,#2563eb);
+    .projects-section{
+        padding:90px 0;
+    }
 
-}
- /*=========================================
-      PROJECT CARD ALIGNMENT FIX
-=========================================*/
-    .project-card{
-    display:flex;
-    flex-direction:column;
-    height:100%;
-}
-.project-card{
-    display:flex;
-    flex-direction:column;
-    height:100%;
-}
+    .projects-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+        margin-top:45px;
+    }
 
-.project-content{
-    display:flex;
-    flex-direction:column;
-    flex:1;
-}
+    .project-visual{
+        aspect-ratio:16 / 7;
+    }
 
-.project-highlights{
-    min-height:72px;
+    .project-content{
+        padding:24px;
+    }
+
+    .project-content > p,
+    .project-highlights,
+    .project-tech{
+        min-height:0;
+    }
 }
 
-.project-tech{
-    min-height:84px;
-}
+@media (max-width:480px){
 
-.project-links{
-    margin-top:auto;
-}
-.project-content{
-    display:flex;
-    flex-direction:column;
-    flex:1;
-}
+    .project-content h3{
+        font-size:24px;
+    }
 
-.project-highlights{
-    min-height:72px;
-}
+    .project-links{
+        grid-template-columns:1fr;
+    }
 
-.project-tech{
-    min-height:84px;
-}
-
-.project-links{
-    margin-top:auto;
+    .project-number{
+        top:12px;
+        left:12px;
+        width:42px;
+        height:42px;
+    }
 }
        
         /* Mobile */
@@ -2206,8 +2225,7 @@
 
     </div>
 
-</section>
-       <section class="projects-section" id="projects">
+</section><section class="projects-section" id="projects">
 
     <div class="container">
 
@@ -2222,106 +2240,126 @@
             </h2>
 
             <p>
-                A selection of data analytics, business intelligence and machine
-                learning projects focused on solving practical business problems
-                through clear analysis and effective visual communication.
+                A selection of data analytics, business intelligence and
+                machine learning projects focused on solving practical
+                business problems through clear analysis and effective
+                visual communication.
             </p>
 
         </div>
 
         <div class="projects-grid">
 
-           <!-- Project 1 -->
-<article class="project-card">
-    <div class="project-visual">
+            <!-- =====================================
+                 PROJECT 1 — POWER BI
+            ====================================== -->
 
-    <img
-        src="assets/images/powerbi-banner.png"
-        alt="Sales Performance Dashboard project preview"
-        class="project-banner"
-    >
-
-    <span class="project-number">01</span>
-
-</div>
-   
-
-    <div class="project-content">
-
-        <div class="project-category">
-            Business Intelligence
-        </div>
-
-        <h3>
-            Sales Performance Dashboard
-        </h3>
-
-        <p>
-            Developed an interactive Power BI dashboard to analyse
-            sales, profit, regional performance, product categories
-            and key business indicators.
-        </p>
-
-        <div class="project-highlights">
-
-            <span>
-                <i class="fa-solid fa-check"></i>
-                KPI Analysis
-            </span>
-
-            <span>
-                <i class="fa-solid fa-check"></i>
-                Regional Insights
-            </span>
-
-            <span>
-                <i class="fa-solid fa-check"></i>
-                Interactive Filters
-            </span>
-
-        </div>
-
-        <div class="project-tech">
-
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>Power Query</span>
-            <span>Data Modelling</span>
-
-        </div>
-
-        <div class="project-links">
-
-            <a href="javascript:void(0)" class="project-link primary">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                View Project
-            </a>
-
-            <a href="javascript:void(0)" class="project-link">
-                <i class="fa-brands fa-github"></i>
-                GitHub
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-            <!-- Project 2 -->
             <article class="project-card">
 
-               <div class="project-visual">
+                <div class="project-visual">
 
-    <img
-        src="assets/images/titanic-banner.png"
-        alt="Titanic Survival Prediction project preview"
-        class="project-banner"
-    >
+                    <img
+                        src="assets/images/powerbi-banner.png"
+                        alt="Sales Performance Dashboard project preview"
+                        class="project-banner"
+                    >
 
-    <span class="project-number">02</span>
+                    <span class="project-number">
+                        01
+                    </span>
 
-</div>
+                </div>
+
                 <div class="project-content">
+
+                    <div class="project-category">
+                        Business Intelligence
+                    </div>
+
+                    <h3>
+                        Sales Performance Dashboard
+                    </h3>
+
+                    <p>
+                        Developed an interactive Power BI dashboard to analyse
+                        sales, profit, regional performance, product categories
+                        and key business indicators.
+                    </p>
+
+                    <div class="project-highlights">
+
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                            KPI Analysis
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                            Regional Insights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                            Interactive Filters
+                        </span>
+
+                    </div>
+
+                    <div class="project-tech">
+
+                        <span>Power BI</span>
+                        <span>DAX</span>
+                        <span>Power Query</span>
+                        <span>Data Modelling</span>
+
+                    </div>
+
+                    <div class="project-links">
+
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link primary"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Project
+                        </a>
+
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- =====================================
+                 PROJECT 2 — MACHINE LEARNING
+            ====================================== -->
+
+            <article class="project-card">
+
+                <div class="project-visual">
+
+                    <img
+                        src="assets/images/titanic-banner.png"
+                        alt="Titanic Survival Prediction project preview"
+                        class="project-banner"
+                    >
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                </div>
+
+                <div class="project-content">
+
                     <div class="project-category">
                         Predictive Analytics
                     </div>
@@ -2331,9 +2369,9 @@
                     </h3>
 
                     <p>
-                        Built a machine learning workflow to clean passenger data,
-                        explore survival patterns, engineer useful features and
-                        predict passenger survival.
+                        Built a machine learning workflow to clean passenger
+                        data, explore survival patterns, engineer useful
+                        features and predict passenger survival.
                     </p>
 
                     <div class="project-highlights">
@@ -2366,12 +2404,18 @@
 
                     <div class="project-links">
 
-                        <a href="javascript:void(0)" class="project-link primary">
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link primary"
+                        >
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             View Project
                         </a>
 
-                        <a href="javascript:void(0)" class="project-link">
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link"
+                        >
                             <i class="fa-brands fa-github"></i>
                             GitHub
                         </a>
@@ -2382,10 +2426,26 @@
 
             </article>
 
-            <!-- Project 3 -->
+            <!-- =====================================
+                 PROJECT 3 — SQL
+            ====================================== -->
+
             <article class="project-card">
 
-                 <span>SQL Analysis</span>
+                <div class="project-visual">
+
+                    <img
+                        src="assets/images/sql-banner.png"
+                        alt="Customer and Sales SQL Analysis project preview"
+                        class="project-banner"
+                    >
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                </div>
+
                 <div class="project-content">
 
                     <div class="project-category">
@@ -2432,12 +2492,18 @@
 
                     <div class="project-links">
 
-                        <a href="javascript:void(0)" class="project-link primary">
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link primary"
+                        >
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             View Project
                         </a>
 
-                        <a href="javascript:void(0)" class="project-link">
+                        <a
+                            href="javascript:void(0)"
+                            class="project-link"
+                        >
                             <i class="fa-brands fa-github"></i>
                             GitHub
                         </a>

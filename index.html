@@ -1064,6 +1064,9 @@
     transition:.35s ease;
 }
 
+
+        
+
 .tool-logo{
     position:relative;
     z-index:1;
@@ -1073,7 +1076,22 @@
     filter:drop-shadow(0 0 9px rgba(59,130,246,.35));
     transition:.35s ease;
 }
+.tool-svg{
+    position:relative;
+    z-index:1;
+    width:52px;
+    height:52px;
+    fill:#60a5fa;
+    filter:drop-shadow(0 0 9px rgba(59,130,246,.4));
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
 
+.footer-tool-card:hover .tool-svg{
+    transform:translateY(-3px) scale(1.08);
+    filter:drop-shadow(0 0 14px rgba(59,130,246,.65));
+}
 .footer-tool-card p{
     position:relative;
     z-index:1;
@@ -1804,36 +1822,45 @@
         <p>Jupyter Notebook</p>
     </div>
 
-    <!-- VS Code -->
-    <div class="footer-tool-card">
-        <i class="fa-solid fa-code"></i>
-        <p>VS Code</p>
-    </div>
+   <!-- VS Code -->
+<div class="footer-tool-card">
+    <svg class="tool-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17.6 2.3 9.8 9.4 5.1 5.8 2.3 7.4l4.6 4.6-4.6 4.6 2.8 1.6 4.7-3.6 7.8 7.1 4.1-2V4.3l-4.1-2zm-.7 5v9.4L11.7 12l5.2-4.7z"/>
+    </svg>
+    <p>VS Code</p>
+</div>
 
-    <!-- Exploratory Data Analysis -->
-    <div class="footer-tool-card">
-        <i class="fa-solid fa-chart-line"></i>
-        <p>Exploratory Data Analysis</p>
-    </div>
+<!-- Exploratory Data Analysis -->
+<div class="footer-tool-card">
+    <svg class="tool-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 20h18v2H1V3h2v17zm3-3-2-2 5-5 4 4 6-7 2 2-8 9-4-4-3 3z"/>
+    </svg>
+    <p>Exploratory Data Analysis</p>
+</div>
 
-    <!-- Feature Engineering -->
-    <div class="footer-tool-card">
-        <i class="fa-solid fa-gears"></i>
-        <p>Feature Engineering</p>
-    </div>
+<!-- Feature Engineering -->
+<div class="footer-tool-card">
+    <svg class="tool-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.4 13a7.8 7.8 0 0 0 0-2l2.1-1.7-2-3.4-2.6 1a7.7 7.7 0 0 0-1.7-1L14.8 3h-4l-.4 2.9a7.7 7.7 0 0 0-1.7 1l-2.6-1-2 3.4L6.2 11a7.8 7.8 0 0 0 0 2l-2.1 1.7 2 3.4 2.6-1a7.7 7.7 0 0 0 1.7 1l.4 2.9h4l.4-2.9a7.7 7.7 0 0 0 1.7-1l2.6 1 2-3.4L19.4 13zM12.8 15.8a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+    </svg>
+    <p>Feature Engineering</p>
+</div>
 
-    <!-- Data Cleaning -->
-    <div class="footer-tool-card">
-        <i class="fa-solid fa-broom"></i>
-        <p>Data Cleaning</p>
-    </div>
+<!-- Data Cleaning -->
+<div class="footer-tool-card">
+    <svg class="tool-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 2 9 8l3 3 6-6-3-3zm-4.4 8.4L3 18v3h3l7.6-7.6-3-3zM14 16h7v2h-7v-2zm-3 4h10v2H11v-2z"/>
+    </svg>
+    <p>Data Cleaning</p>
+</div>
 
-    <!-- Statistical Analysis -->
-    <div class="footer-tool-card">
-        <i class="fa-solid fa-chart-pie"></i>
-        <p>Statistical Analysis</p>
-    </div>
-
+<!-- Statistical Analysis -->
+<div class="footer-tool-card">
+    <svg class="tool-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 2v10h10A10 10 0 0 0 11 2zm-2 2.2A10 10 0 1 0 19.8 15H9V4.2zm4 9.8V4.3A8 8 0 0 1 19.7 14H13z"/>
+    </svg>
+    <p>Statistical Analysis</p>
+</div>
     <!-- Kaggle -->
     <div class="footer-tool-card">
         <img

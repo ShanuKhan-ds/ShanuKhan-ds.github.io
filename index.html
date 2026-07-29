@@ -2135,7 +2135,112 @@
         height:78px;
         font-size:24px;
     }
-}     
+}
+        /*=========================================
+          ABOUT FINAL POLISH
+=========================================*/
+
+.about-heading h2 span{
+    display:block;
+    color:#60a5fa;
+}
+
+.profile-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:26px;
+}
+
+.profile-action{
+    min-height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 14px;
+    color:#ffffff;
+    font-size:12px;
+    font-weight:800;
+    text-decoration:none;
+    background:rgba(15,23,42,.65);
+    border:1px solid rgba(96,165,250,.24);
+    border-radius:12px;
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.profile-action.primary{
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+    border-color:transparent;
+}
+
+.profile-action:hover{
+    transform:translateY(-3px);
+    border-color:rgba(96,165,250,.65);
+    background:rgba(30,41,59,.92);
+}
+
+.profile-action.primary:hover{
+    background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+}
+
+.profile-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:22px;
+}
+
+.profile-stat{
+    padding:14px 8px;
+    text-align:center;
+    background:rgba(15,23,42,.62);
+    border:1px solid rgba(96,165,250,.14);
+    border-radius:13px;
+}
+
+.profile-stat strong{
+    display:block;
+    margin-bottom:3px;
+    color:#60a5fa;
+    font-size:20px;
+}
+
+.profile-stat span{
+    display:block;
+    color:#94a3b8;
+    font-size:9px;
+    font-weight:700;
+    line-height:1.4;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+}
+
+.about-intro-card > p:not(.about-card-label){
+    max-width:900px;
+}
+
+@media (max-width:480px){
+
+    .profile-actions{
+        grid-template-columns:1fr;
+    }
+
+    .profile-stats{
+        grid-template-columns:1fr;
+    }
+}
+        
         /* Mobile */
 
       @media (max-width: 1050px) {
@@ -2408,16 +2513,14 @@
             </p>
 
             <h2>
-                Data Analyst Focused on Business Insights
-                and Practical Solutions
-            </h2>
-
-            <p>
-                Combining data analysis, business intelligence,
-                data visualisation and continuous learning to transform
-                raw information into clear, actionable insights.
-            </p>
-
+    Turning Data Into
+    <span>Business Insights</span>
+</h2>
+           <p>
+    Data Analyst skilled in Python, SQL, Power BI, Advanced Excel and Tableau,
+    with practical experience in data analysis, dashboard development,
+    business intelligence and machine learning projects.
+</p>
         </div>
 
         <div class="about-layout">
@@ -2504,7 +2607,36 @@
                     <span>Tableau</span>
 
                 </div>
+<div class="profile-actions">
 
+    <a href="#projects" class="profile-action primary">
+        View Projects
+    </a>
+
+    <a href="#contact" class="profile-action">
+        Contact Me
+    </a>
+
+</div>
+
+<div class="profile-stats">
+
+    <div class="profile-stat">
+        <strong>03</strong>
+        <span>Featured Projects</span>
+    </div>
+
+    <div class="profile-stat">
+        <strong>06</strong>
+        <span>Core Skills</span>
+    </div>
+
+    <div class="profile-stat">
+        <strong>03</strong>
+        <span>Key Credentials</span>
+    </div>
+
+</div>
             </aside>
 
             <!-- =====================================
@@ -2516,30 +2648,31 @@
                 <div class="about-intro-card">
 
                     <p class="about-card-label">
-                        Professional Summary
-                    </p>
+    Professional Summary
+</p>
 
-                    <h3>
-                        Turning Data into Meaningful Business Information
-                    </h3>
+<h3>
+    Data Analysis, Business Intelligence and Reporting
+</h3>
 
-                    <p>
-                        I am an aspiring Data Analyst with hands-on experience
-                        in Python, SQL, Power BI, Advanced Excel and Tableau.
-                        I work with structured datasets to clean and transform
-                        data, perform exploratory data analysis, identify
-                        business trends and communicate results through clear
-                        dashboards and reports.
-                    </p>
+<p>
+    I am an aspiring Data Analyst with hands-on experience in Python,
+    SQL, Power BI, Advanced Excel and Tableau. I work with structured
+    datasets to clean, transform and analyse data, identify patterns
+    and communicate findings through dashboards and reports.
+</p>
 
-                    <p>
-                        My practical work includes dashboard development,
-                        KPI reporting, data visualisation, database analysis,
-                        feature engineering and machine learning workflows.
-                        My goal is to support data-driven decision-making by
-                        converting complex information into useful and
-                        understandable business insights.
-                    </p>
+<p>
+    My practical experience includes exploratory data analysis,
+    dashboard development, KPI reporting, database analysis,
+    feature engineering and machine learning workflows.
+</p>
+
+<p>
+    I am focused on building accurate, clear and useful analytical
+    solutions that support business performance monitoring and
+    data-driven decision-making.
+</p>
 
                 </div>
 

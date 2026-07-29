@@ -2890,16 +2890,16 @@
     transform:scale(1.10);
 }
 .contact-detail-text{
-
     display:flex;
     flex-direction:column;
+    min-width:0;
 }
 
 .contact-detail-text small{
+    margin-bottom:4px;
     color:#94a3b8;
     font-size:12px;
     font-weight:600;
-    margin-bottom:4px;
 }
 
 .contact-detail-text strong{
@@ -2914,17 +2914,11 @@
     margin-left:auto;
     color:#60a5fa;
     font-size:14px;
-    transition:.35s ease;
+    transition:transform .35s ease;
 }
 
 .contact-detail-item:hover .contact-arrow{
     transform:translateX(5px);
-}
-
-.contact-detail-item:hover .contact-arrow{
-
-    transform:translateX(5px);
-
 }
 
 .contact-social-links{

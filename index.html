@@ -5509,7 +5509,7 @@
                                 <input
                                     type="text"
                                     id="contact-name"
-                                    name="name"
+                                   name="from_name"
                                     placeholder="Enter your full name"
                                     autocomplete="name"
                                     required
@@ -5532,7 +5532,7 @@
                                 <input
                                     type="email"
                                     id="contact-email"
-                                    name="email"
+                                    name="from_email"
                                     placeholder="Enter your email address"
                                     autocomplete="email"
                                     required
@@ -5617,6 +5617,39 @@
 
     </main>
     <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+emailjs.init({
+    publicKey: "v9PyXdHAmb0GFGm-N"
+});
 
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    emailjs.sendForm(
+
+        "service_p42n6go",
+        "template_vlb85pb",
+        this
+
+    ).then(function(){
+
+        alert("✅ Thank you! Your message has been sent successfully.");
+
+        contactForm.reset();
+
+    }).catch(function(error){
+
+        alert("❌ Failed to send message. Please try again.");
+
+        console.log(error);
+
+    });
+
+});
+</script>
 </body>
 </html>

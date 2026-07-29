@@ -5630,6 +5630,13 @@ contactForm.addEventListener("submit", function(e){
     e.preventDefault();
 
     emailjs.sendForm(
+        const submitButton = contactForm.querySelector(".contact-submit-button");
+
+submitButton.disabled = true;
+submitButton.innerHTML = `
+<span>Sending...</span>
+<i class="fa-solid fa-spinner fa-spin"></i>
+`;
 
         "service_p42n6go",
         "template_vlb85pb",
@@ -5637,15 +5644,29 @@ contactForm.addEventListener("submit", function(e){
 
     ).then(function(){
 
-        alert("✅ Thank you! Your message has been sent successfully.");
-
         contactForm.reset();
+
+submitButton.disabled = false;
+
+submitButton.innerHTML = `
+<span>Send Message</span>
+<i class="fa-solid fa-paper-plane"></i>
+`;
+
+alert("✅ Thank you! Your message has been sent successfully.");
 
     }).catch(function(error){
 
-        alert("❌ Failed to send message. Please try again.");
+       submitButton.disabled = false;
 
-        console.log(error);
+submitButton.innerHTML = `
+<span>Send Message</span>
+<i class="fa-solid fa-paper-plane"></i>
+`;
+
+alert("❌ Failed to send message. Please try again.");
+
+console.log(error);
 
     });
 

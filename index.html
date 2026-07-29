@@ -2603,6 +2603,163 @@
         text-align:left;
     }
 }
+    /*====================================================
+                CONTACT SECTION
+====================================================*/
+
+.contact-section{
+    padding:120px 0;
+    position:relative;
+}
+
+.contact-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.contact-layout{
+
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:40px;
+    align-items:start;
+
+}
+
+.contact-information-card,
+.contact-form-card{
+
+    position:relative;
+
+    background:linear-gradient(
+        145deg,
+        rgba(30,43,77,.96),
+        rgba(20,29,56,.96)
+    );
+
+    border:1px solid rgba(73,133,255,.22);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 12px 40px rgba(0,0,0,.28),
+
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+}
+
+.contact-information-card{
+
+    padding:42px;
+
+}
+
+.contact-form-card{
+
+    padding:42px;
+
+}
+
+.contact-card-glow{
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.18);
+
+    filter:blur(90px);
+
+    top:-120px;
+    right:-120px;
+
+    pointer-events:none;
+
+}
+
+.contact-card-label{
+
+    color:#60a5fa;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.contact-information-card h3{
+
+    font-size:34px;
+
+    line-height:1.25;
+
+    margin-bottom:18px;
+
+}
+
+.contact-card-description{
+
+    color:#9fb2d4;
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+
+}
+
+.contact-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border-radius:999px;
+
+    background:rgba(16,185,129,.12);
+
+    border:1px solid rgba(16,185,129,.25);
+
+    color:#7CFFB5;
+
+    font-weight:700;
+
+    margin-bottom:36px;
+
+}
+
+.contact-status::before{
+
+    content:"";
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    box-shadow:0 0 12px #22c55e;
+
+}    
         /* Mobile */
 
       @media (max-width: 1050px) {

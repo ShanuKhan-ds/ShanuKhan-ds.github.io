@@ -2778,7 +2778,7 @@
     display:flex;
     align-items:center;
     gap:18px;
-
+    min-height:92px;
     text-decoration:none;
 
     padding:18px 20px;
@@ -2793,76 +2793,132 @@
 
     color:#ffffff;
 
-}
-
 .contact-detail-item:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
-    border-color:#3b82f6;
+    border-color:rgba(96,165,250,.48);
 
-    background:rgba(59,130,246,.08);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.10),
+            rgba(15,23,42,.55)
+        );
 
-    box-shadow:0 0 25px rgba(59,130,246,.18);
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.20),
+        0 0 24px rgba(59,130,246,.12);
 
 }
 
 .contact-detail-icon{
-
-    width:56px;
-    height:56px;
-
-    border-radius:16px;
+    position:relative;
+    width:58px;
+    height:58px;
+    flex:0 0 58px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:linear-gradient(135deg,#2563eb,#60a5fa);
+    color:#ffffff;
+    font-size:19px;
 
-    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+        );
 
-    font-size:20px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
 
-    flex-shrink:0;
+    box-shadow:
+        0 12px 28px rgba(37,99,235,.30),
+        0 0 20px rgba(59,130,246,.12);
 
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+        .contact-detail-icon::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+
+    border:1px solid rgba(96,165,250,.18);
+    border-radius:50%;
+
+    opacity:0;
+    transform:scale(.82);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
 }
 
+.contact-detail-item:hover .contact-detail-icon{
+    transform:translateY(-3px) scale(1.07);
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #3b82f6
+        );
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,.42),
+        0 0 30px rgba(59,130,246,.34);
+}
+
+.contact-detail-item:hover .contact-detail-icon::before{
+    opacity:1;
+    transform:scale(1);
+}
+
+.contact-detail-icon i{
+    position:relative;
+    z-index:1;
+    transition:transform .35s ease;
+}
+
+.contact-detail-item:hover .contact-detail-icon i{
+    transform:scale(1.10);
+}
 .contact-detail-text{
 
     display:flex;
     flex-direction:column;
-
 }
 
 .contact-detail-text small{
-
-    color:#9fb2d4;
-
-    font-size:13px;
-
+    color:#94a3b8;
+    font-size:12px;
+    font-weight:600;
     margin-bottom:4px;
-
 }
 
 .contact-detail-text strong{
-
-    color:#fff;
-
-    font-size:16px;
-
-    font-weight:600;
-
+    color:#ffffff;
+    font-size:14px;
+    font-weight:700;
+    line-height:1.4;
+    overflow-wrap:anywhere;
 }
 
 .contact-arrow{
-
     margin-left:auto;
-
     color:#60a5fa;
+    font-size:14px;
+    transition:.35s ease;
+}
 
-    transition:.35s;
-
+.contact-detail-item:hover .contact-arrow{
+    transform:translateX(5px);
 }
 
 .contact-detail-item:hover .contact-arrow{
@@ -2875,6 +2931,7 @@
 
     display:flex;
 
+    
     gap:16px;
 
     margin-top:10px;
@@ -3302,6 +3359,7 @@
 }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>

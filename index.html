@@ -3630,7 +3630,36 @@
     .contact-input-wrapper textarea{
         min-height:145px;
     }
-}   
+}
+    .contact-form-status{
+    display:none;
+    margin-top:18px;
+    padding:14px 16px;
+    border-radius:12px;
+    font-size:0.95rem;
+    font-weight:600;
+    line-height:1.5;
+    text-align:center;
+}
+
+.contact-form-status.success{
+    display:block;
+    color:#b7f7cf;
+    background:rgba(34, 197, 94, 0.12);
+    border:1px solid rgba(34, 197, 94, 0.35);
+}
+
+.contact-form-status.error{
+    display:block;
+    color:#fecaca;
+    background:rgba(239, 68, 68, 0.12);
+    border:1px solid rgba(239, 68, 68, 0.35);
+}
+
+.contact-submit-button:disabled{
+    cursor:not-allowed;
+    opacity:0.75;
+}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
@@ -5600,7 +5629,12 @@
                         <i class="fa-solid fa-paper-plane"></i>
 
                     </button>
-
+                    <p
+    id="contact-form-status"
+    class="contact-form-status"
+    aria-live="polite"
+></p>
+                    
                     <p class="contact-form-note">
                         Your information will only be used to respond to your message.
                     </p>
@@ -5627,10 +5661,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const contactForm = document.getElementById("contact-form");
     const submitButton = contactForm.querySelector(".contact-submit-button");
+    const formStatus = document.getElementById("contact-form-status");
 
     contactForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
+
+        formStatus.className = "contact-form-status";
+        formStatus.textContent = "";
 
         submitButton.disabled = true;
         submitButton.innerHTML = `
@@ -5645,24 +5683,30 @@ document.addEventListener("DOMContentLoaded", function () {
         )
         .then(function () {
 
-            alert("✅ Thank you! Your message has been sent successfully.");
-
             contactForm.reset();
 
-            submitButton.disabled = false;
-            submitButton.innerHTML = `
-                <span>Send Message</span>
-                <i class="fa-solid fa-paper-plane"></i>
-            `;
+            formStatus.textContent =
+                "✓ Message sent successfully. Thank you for reaching out!";
+
+            formStatus.className =
+                "contact-form-status success";
 
         })
         .catch(function (error) {
 
             console.error("EmailJS Error:", error);
 
-            alert("❌ Message could not be sent. Please try again.");
+            formStatus.textContent =
+                "Message could not be sent. Please try again.";
+
+            formStatus.className =
+                "contact-form-status error";
+
+        })
+        .finally(function () {
 
             submitButton.disabled = false;
+
             submitButton.innerHTML = `
                 <span>Send Message</span>
                 <i class="fa-solid fa-paper-plane"></i>

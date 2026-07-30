@@ -5617,56 +5617,58 @@
 
     </main>
     <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>>
     <script>
-emailjs.init({
-    publicKey: "v9PyXdHAmb0GFGm-N"
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-const contactForm = document.getElementById("contact-form");
+    emailjs.init({
+        publicKey: "v9PyXdHAmb0GFGm-N"
+    });
 
-contactForm.addEventListener("submit", function(e){
+    const contactForm = document.getElementById("contact-form");
+    const submitButton = contactForm.querySelector(".contact-submit-button");
 
-    e.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
 
-    emailjs.sendForm(
-        const submitButton = contactForm.querySelector(".contact-submit-button");
+        event.preventDefault();
 
-submitButton.disabled = true;
-submitButton.innerHTML = `
-<span>Sending...</span>
-<i class="fa-solid fa-spinner fa-spin"></i>
-`;
+        submitButton.disabled = true;
+        submitButton.innerHTML = `
+            <span>Sending...</span>
+            <i class="fa-solid fa-spinner fa-spin"></i>
+        `;
 
-        "service_p42n6go",
-        "template_vlb85pb",
-        this
+        emailjs.sendForm(
+            "service_p42n6go",
+            "template_vlb85pb",
+            contactForm
+        )
+        .then(function () {
 
-    ).then(function(){
+            alert("✅ Thank you! Your message has been sent successfully.");
 
-        contactForm.reset();
+            contactForm.reset();
 
-submitButton.disabled = false;
+            submitButton.disabled = false;
+            submitButton.innerHTML = `
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+            `;
 
-submitButton.innerHTML = `
-<span>Send Message</span>
-<i class="fa-solid fa-paper-plane"></i>
-`;
+        })
+        .catch(function (error) {
 
-alert("✅ Thank you! Your message has been sent successfully.");
+            console.error("EmailJS Error:", error);
 
-    }).catch(function(error){
+            alert("❌ Message could not be sent. Please try again.");
 
-       submitButton.disabled = false;
+            submitButton.disabled = false;
+            submitButton.innerHTML = `
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+            `;
 
-submitButton.innerHTML = `
-<span>Send Message</span>
-<i class="fa-solid fa-paper-plane"></i>
-`;
-
-alert("❌ Failed to send message. Please try again.");
-
-console.log(error);
+        });
 
     });
 
